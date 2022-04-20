@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+require "include/db.php";
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,11 +19,20 @@
 <link rel="stylesheet" href="css/styles.css">    <title>Accueil - Wikifruit</title>
 </head>
 <body>
+
 <?php
+
+if( empty( $_SESSION["user"] ) ){
 
 include "include/menu.php";
 
+} else {
+
+include "include/menu-user.php";
+
+}
 ?>
+
     <div class="container-fluid">
 
         <div class="row">

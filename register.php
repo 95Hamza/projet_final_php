@@ -50,7 +50,7 @@ if(
         // Execution de la requête préparée en envoyant la valeur de $_POST['name'] au premier "?" et $_POST['color'] au deuxième "?"
         $querySuccess = $insertNewFruit->execute([
             $_POST['email'],
-            $_POST['password'],
+            password_hash($_POST['password'], PASSWORD_BCRYPT),
             $_POST['pseudonym'],
         ]);
 
@@ -61,7 +61,7 @@ if(
         if($querySuccess){
 
             // Message de succès
-            $successMsg = 'Le fruit a bien été ajouté !';
+            $successMsg = 'Votre compte a bien été ajouté !';
         } else {
 
             $errors[] = 'Problème, veuillez ré-essayer';
@@ -92,7 +92,7 @@ if(
 <!-- Inclure le menu  -->
 <?php
 
-include "include/menu.php";
+    include "include/menu.php";
 
 ?>
 
